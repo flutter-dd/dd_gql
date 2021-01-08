@@ -13,11 +13,9 @@ class GQL {
     }
     return _client;
   }
-
 }
 
 extension Artemis on ArtemisClient {
-
   Future<void> saveToken(String token) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString("dd_gql_token", token);
@@ -41,7 +39,6 @@ extension Artemis on ArtemisClient {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString("dd_gql_token") ?? '';
   }
-
 }
 
 class AuthenticatedClient extends BaseClient {

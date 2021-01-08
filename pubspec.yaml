@@ -1,0 +1,25 @@
+name: dd_gql
+description: A new Flutter package.
+version: 0.0.1
+homepage: https://github.com/flutter-dd/dd_gql
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  artemis: '>=5.0.0 <6.0.0'
+  meta: '>=1.0.0 <2.0.0'
+  gql: '>=0.7.3 <1.0.0'
+  json_serializable: ^3.0.0
+  build_runner: ^1.5.0
+  shared_preferences: ^0.5.6
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+

@@ -1,0 +1,17 @@
+targets:
+  $default:
+    sources:
+      - lib/**
+      - sdl.gql
+    builders:
+      artemis:
+        options:
+          schema_mapping:
+            - schema: sdl.gql
+              queries_glob: lib/gqls/**.graphql
+              output: lib/Models/models.dart
+          scalar_mapping:
+            - graphql_type: GenericScalar
+              dart_type: Object
+              use_custom_parser: true
+

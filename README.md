@@ -14,25 +14,43 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-1. get-graphql-schema http://XXXXXXXXXXXXXX/ > schema.graphql 导出文件到根目录下
+1. get-graphql-schema http://XXXXXXXXXXXXXX/ > sdl.gql 导出文件到根目录下
 2. 项目根目录下创建 build.yaml 文件
-3. 在lib目录下创建 graphql 文件夹, 用来存放 .graphql 文件
+3. 在lib目录下创建 gqls 文件夹, 用来存放 .graphql 文件
+4. 在lib目录下创建 Models 文件夹, 用来存放自动生成的文件
+
 ``` build.yaml
 targets:
   $default:
     sources:
       - lib/**
-      - schema.graphql
+      - sdl.gql
     builders:
       artemis:
         options:
           schema_mapping:
-            - schema: schema.graphql
-              queries_glob: lib/**.graphql
-              output: lib/graphql/models.dart
+            - schema: sdl.gql
+              queries_glob: lib//gqls/**.graphql
+              output: lib/Models/models.dart
           scalar_mapping:
             - graphql_type: GenericScalar
               dart_type: Object
               use_custom_parser: true
 ```
-4. flutter pub run build_runner build --delete-conflicting-outputs
+
+``` pubspec.ymal
+.
+.
+.
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  json_serializable: ^3.0.0
+  build_runner: ^1.5.0
+.
+.
+.
+```
+
+
+5. flutter pub run build_runner build --delete-conflicting-outputs
